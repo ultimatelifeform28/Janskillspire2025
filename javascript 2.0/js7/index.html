@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+
+    <style>
+        #name-form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    <form id="name-form">
+        <label for="name"> First Name:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="Age">Age</label>
+        <input type="number" id="age" name="age">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script>
+        // Get references to the form and output div
+       let nameForm = document.getElementById('name-form');
+       let outputDiv = document.getElementById('output');
+
+       // Add an event listener to handle form submission
+       nameForm.addEventListener('submit', function(event) {
+           event.preventDefault(); // Prevents the default form submission
+           
+           // Retrieve values from form inputs
+           const firstName = document.getElementById('name').value;
+           const lastName = document.getElementById('lastname').value;
+           const email = document.getElementById('email').value;
+           const age = document.getElementById('age').value;
+
+           // Display the values in the output div
+           document.write(`
+               <p>First Name: ${firstName}</p>
+               <p>Last Name: ${lastName}</p>
+               <p>Email: ${email}</p>
+               <p>Age: ${age}</p>
+           `);
+       });
+    </script>
+    
+</body>
+</html>

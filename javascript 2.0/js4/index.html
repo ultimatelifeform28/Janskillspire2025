@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function promptUserAndDisplayInfo() {
+            let fullname = prompt("Please enter your full name:");
+            let favoriteFood =  prompt("Please enter your favorite food:");
+            let favoriteActivity =  prompt("Please enter your favorite activity:");
+
+            if (fullname !==null && favoriteFood !==null && favoriteActivity !==null) {
+
+                document.write("<h1>Jacorey Lasane</h1>");
+                document.write("<h1>Steak</h1>");
+                document.write("<h1>Boxing</h1>");
+                
+            
+            }
+        }
+        
+        promptUserAndDisplayInfo();
+
+        console.log("Full Name: " + fullname);
+        console.log("Favorite Food: " + favoriteFood);
+        console.log("Favorite Activity: " + favoriteActivity);
+        
+            
+    </script>
+</body>
+</html>

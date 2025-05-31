@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add 3 Images with a for Loop</title>
+    <style>
+        #imageContainer {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id = "imageContainer">
+
+
+        <script>
+            var container = document.getElementById("imageContainer");
+
+            for (var i = 0; i < 3; i++) {
+             var image = document.createElement("img");
+             //image.src = "cat" + (i + 1) + ".jpg";//  add 3 consecutive images named cat1.jpg, cat2.jpg, cat3.jpg
+             
+              // For testing, use placeholder images:
+              image.src = "./cat.jpg"
+                container.appendChild(image);
+
+            }
+        </script>
+    </div>
+    
+</body>
+</html>

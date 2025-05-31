@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Color on Button Click</title>
+    <style>
+        #colordiv {
+            width: 100px;
+            height: 100px;
+            background-color: red;/* Initial background color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Demo</h1>
+
+<div id= "colordiv"></div>
+    <button id="click">Change Color </button>
+
+    <script>
+    // Get references to the button and div elements 
+    let button = document.getElementById('click')
+    let colordiv =document.getElementById('colordiv')
+
+    // Add an event listener to handle button clicks
+    button.addEventListener('click', function() {
+        // Change the background color of the div to blue
+        colordiv.style.backgroundColor = 'blue'
+    })
+
+
+    </script>
+</body>
+</html>

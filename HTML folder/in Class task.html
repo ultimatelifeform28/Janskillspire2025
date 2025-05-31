@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Information Form</title>
+</head>
+<body>
+    <h2>Personal Information</h2> 
+    <form action="/submit_form" method="post"> 
+        <label for="name">First Name:</label>
+        <br>
+         <input type="text" id="name" name="name" required>
+         <br>
+         <br>
+          <label for="email">Email:</label>
+          <br> 
+          <input type="email" id="email" name="email" required>
+          <br>
+          <br> 
+          <label for="Gender">Gender:</label>
+          <br>
+           <input type="radio"  name ="Male" reqired>
+           <label>Male</label>
+           <input type="radio" id="Gender Selector" name ="Female" reqired>
+           <label>Female</label>
+          <br>
+          <br> 
+          <label for="date">Date</label>
+          <br> 
+          <input type="date" id="date" name="date" required>
+          <br>
+          <br> 
+          <labeol for="password">Password:</label>
+          <br>
+          <input type="password" id="password" name="password" required>
+          <br>
+          <br> 
+          <input type="submit" value="Submit">
+</body>
+</html>

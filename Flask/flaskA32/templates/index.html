@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+<body>
+    {% for number in array %}
+        {% if number % 2 == 0 %}
+            <h3>Even</h3>
+             {%else%}
+               <h3>Odd</h3>
+        {% endif %}
+    {% endfor %}
+
+
+    
+</body>
+</html>

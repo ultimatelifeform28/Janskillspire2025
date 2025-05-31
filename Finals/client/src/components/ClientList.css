@@ -1,0 +1,61 @@
+.client-list {
+  max-width: 1000px;
+  margin: 2rem auto;
+  font-family: 'Inter', sans-serif;
+  padding: 1rem;
+}
+
+.client-card {
+  background: #fff;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.client-card h2 {
+  margin-top: 0;
+  color: #2b6cb0;
+}
+
+.client-card p {
+  margin: 0.5rem 0;
+}
+
+button {
+  background-color: #2b6cb0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0.25rem 0.5rem 0.25rem 0;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Make all delete buttons red */
+button.delete-btn {
+  background-color: #d7263d;
+}
+
+button.delete-btn:hover {
+  background-color: #a61b2b;
+}
+
+button.delete-btn:active {
+  background-color: #7a1620;
+}
+
+button:hover {
+  background-color: #225a99;
+  transform: translateY(-2px) scale(1.03);
+}
+
+button:active {
+  background-color: #19406e;
+  transform: scale(0.98);
+}
+
+

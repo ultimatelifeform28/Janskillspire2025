@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<body>
+    <h2>Contact Form</h2>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form action="{{ url_for('submit_contact') }}" method="post">
+        First Name: <input type="text" name="firstname" required><br>
+        Last Name: <input type="text" name="lastname" required><br>
+        Phone Number: <input type="text" name="phone" required><br>
+        Street Address: <input type="text" name="street" required><br>
+        State: <input type="text" name="state" required><br>
+        Zip Code: <input type="text" name="zip_code" required><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

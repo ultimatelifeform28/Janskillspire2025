@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> EDit User {{ id }}</h1>
+
+    <form action="/edit_user/{{ id }}" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ name }}" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ email }}" required><br><br>
+
+        <input type="submit" value="Edit User">
+    </form>
+
+    <a href="/users">Back to Users</a>
+    <a href = "/users? {{id}}"> Show</a>
+    
+</body>
+</html>

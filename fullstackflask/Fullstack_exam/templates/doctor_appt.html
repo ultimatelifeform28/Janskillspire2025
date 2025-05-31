@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Appointments</title>
+    <style>
+        /* Style for the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* Style for table borders */
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        /* Style for table cells */
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        /* Style for table headers */
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Style for buttons */
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Style for cancel button */
+        .cancel-button {
+            background-color: #dc3545; /* Red color */
+        }
+
+        .cancel-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Heading for the page -->
+    <h1>Doctor's Appointments</h1>
+
+    <!-- Table to display appointments -->
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Patient Name</th>
+            <th>Complaint</th>
+            <th>Actions</th>
+        </tr>
+        <!-- Loop through appointments and display each one in a table row -->
+        {% for appt in appointments %}
+        <tr>
+            <td>{{ appt.date }}</td>
+            <td>{{ appt.time }}</td>
+            <td>{{ appt.patient_name }}</td>
+            <td>{{ appt.complaint }}</td>
+            <!-- Link to cancel the appointment -->
+            <td>
+                <form action="{{ url_for('cancel_appointment', id=appt.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="cancel-button">Cancel</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <!-- Link to add a new appointment -->
+    <a href="{{ url_for('new_appointment') }}"><button>Add New Appointment</button></a>
+</body>
+</html>

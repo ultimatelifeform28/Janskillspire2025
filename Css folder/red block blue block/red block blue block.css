@@ -1,0 +1,29 @@
+body {
+    justify-content: center;
+    align-items: center;
+    height:1000px;
+    display: flex;
+}
+
+#blue-block {
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    margin: 20px;
+    height: 600px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#red-block {
+    background-color: red;
+    padding: 20px;
+    margin: 20px;
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    
+    
+}

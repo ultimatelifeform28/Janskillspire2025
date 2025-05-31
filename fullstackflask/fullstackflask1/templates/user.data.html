@@ -1,0 +1,63 @@
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+<form action="/login" method="POST">
+    <label for="name">First Name:</label>
+    <input type="text" name="first_name" placeholder="Enter your First Name">
+
+    <label for="name">Last Name:</label>
+    <input type="text" name="last_name" placeholder="Enter your Last Name">
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" placeholder="Enter your email">
+
+    <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Enter your password">
+
+    <input type="submit" value="Submit">
+</form>
+
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Date Created</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.date_created }}</td>
+    </tr>
+    {% endfor %}
+</table>

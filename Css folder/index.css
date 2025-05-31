@@ -1,0 +1,38 @@
+body {
+    background-color: #F2f4f7;
+}
+
+div{
+    outline: dotted 2px red;
+}
+
+.container{
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    height: 1000px;
+}
+
+#connect{
+    width:490px;
+    height: 490px;
+}
+
+#connect h2{
+    line-height: 32px;
+    font-weight:normal;
+    font-size: 28px;
+    font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;;
+    margin-top: 0px;
+    margin-left: 30px;
+}
+
+#form{
+    width:490px;
+    height:490px;
+}
+
+#logo-img{
+    width: 320px;
+    height: 320px;
+}

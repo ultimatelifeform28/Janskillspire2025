@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Appointment</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            align-self: flex-start;
+            margin: 20px;
+            font-size: 24px; /* Adjusted font size for heading */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            font-size: 18px; /* Adjusted font size for form elements */
+        }
+
+        .form-inline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .form-inline label {
+            margin-right: 10px;
+            font-size: 18px; /* Adjusted font size for labels */
+        }
+
+        .form-inline input {
+            margin-right: 20px;
+            flex: 1;
+            font-size: 18px; /* Adjusted font size for inputs */
+            padding: 10px; /* Adjusted padding for inputs */
+        }
+
+        textarea {
+            width: 100%;
+            font-size: 18px; /* Adjusted font size for textarea */
+            padding: 10px; /* Adjusted padding for textarea */
+        }
+
+        button {
+            padding: 15px 30px; /* Adjusted padding for buttons */
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 18px; /* Adjusted font size for buttons */
+        }
+
+        button[type="button"] {
+            background-color: #6c757d;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h2>New Appointment</h2>
+    <div class="container">
+        <form action="{{ url_for('add_appointment') }}" method="post">
+            <div class="form-group form-inline">
+                <label>Date:</label>
+                <input type="date" name="date" required>
+                <label>Time:</label>
+                <input type="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label>Patient Name:</label>
+                <input type="text" name="patient_name" required>
+            </div>
+            <div class="form-group">
+                <label>Complaint:</label>
+                <textarea name="complaint" required></textarea>
+            </div>
+            <button type="submit">Add Appointment</button>
+            <a href="{{ url_for('home') }}"><button type="button">Cancel</button></a>
+        </form>
+    </div>
+</body>
+</html>

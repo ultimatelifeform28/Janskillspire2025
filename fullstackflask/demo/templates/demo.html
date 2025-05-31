@@ -1,0 +1,53 @@
+<h1>Hello World </h1>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<form action="/login" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" placeholder="Enter your name">
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" placeholder="Enter your email">
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Enter your password">
+
+    <input type="submit" value="Submit">
+</form>
+
+
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+    </tr>
+    {% endfor %}
+</table>

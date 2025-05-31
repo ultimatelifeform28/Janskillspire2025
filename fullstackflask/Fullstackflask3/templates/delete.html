@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Deletion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .cancel-btn {
+            background-color: lightgray;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p><strong>Name:</strong> {{ course.course_name }}</p>
+        <p><strong>Description:</strong> {{ course.description }}</p>
+        <div class="buttons">
+            <!-- Cancel button simply goes back to the main page -->
+            <a href="{{ url_for('new_course') }}">
+                <button class="cancel-btn">No</button>
+            </a>
+            <!-- This form posts to the delete endpoint -->
+            <form action="{{ url_for('delete_course', course_id=course['id']) }}" method="POST" style="display:inline;">
+                <button type="submit" class="delete-btn">Yes! I want to delete this</button>
+            </form>
+        </div>
+    </div> 
+</body>
+</html>

@@ -1,0 +1,65 @@
++----------------------+
+|     ModeIdentifier   |  (enum)
+|----------------------|
+| DUMP                |
+| PASSTHROUGH         |
+| VALIDATE            |
++----------------------+
+
++----------------------+
+|  DatabaseIdentifier  |  (enum)
+|----------------------|
+| POSTGRES            |
+| REDIS               |
+| ELASTIC             |
++----------------------+
+
++----------------------+
+|      DataPoint      |
++----------------------+
+
++-----------------------------------+
+|        Processor (Abstract)       |
+|-----------------------------------|
+| - mode: ModeIdentifier            |
+| - database: Database              |
+|-----------------------------------|
+| + configure(mode, db): void       |
+| + process(data: DataPoint): void  |
++-----------------------------------+
+           ▲
+           │
++------------------------+
+|  DumpProcessor         |
+|------------------------|
+| + process(data)        |  // Drops data
++------------------------+
+
++-------------------------+
+|  PassthroughProcessor   |
+|-------------------------|
+| + process(data)         |  // Inserts data into DB
++-------------------------+
+
++----------------------+
+| ValidateProcessor   |
+|----------------------|
+| + process(data)     |  // Validates & inserts data
++----------------------+
+
++----------------------+
+|     Database         |  (Abstract)
+|----------------------|
+| + connect()         |
+| + insert(data)      |
+| + validate(data)    |
++----------------------+
+       ▲      ▲      ▲
+       │      │      │
++----------------+  +----------------+  +----------------+
+| PostgresDatabase |  | RedisDatabase  |  | ElasticDatabase |
+|-----------------|  |----------------|  |----------------|
+| + connect()     |  | + connect()    |  | + connect()    |
+| + insert(data)  |  | + insert(data) |  | + insert(data) |
+| + validate(data)|  | + validate(data) | | + validate(data) |
++----------------+  +----------------+  +----------------+

@@ -1,15 +1,18 @@
 from flask import Flask, render_template, request, redirect, jsonify
-from  flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
+# Initialize Flask app
 app = Flask(__name__)
 
+# Enable CORS for frontend-backend communication (e.g., React ↔ Flask)
 CORS(app)
 
+# Configure SQLite database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///clients.db'
-
 db = SQLAlchemy(app)
 
+# Define the Client model (table structure in the database)
 class Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
@@ -31,7 +34,11 @@ class Client(db.Model):
     progress = db.Column(db.String(500), nullable=True)
     date_created = db.Column(db.DateTime, server_default=db.func.now())
 
+# ====================================
+# API ROUTES
+# ====================================
 
+# GET: Return all clients as JSON
 @app.route('/clients')
 def index():
     clients = Client.query.all()
@@ -61,6 +68,7 @@ def index():
         all_clients.append(client_data)
     return jsonify(all_clients)
 
+# GET: Return a single client by ID
 @app.route('/clients/<int:id>', methods=['GET'])
 def get_client_by_id(id):
     client = Client.query.get_or_404(id)
@@ -86,8 +94,8 @@ def get_client_by_id(id):
         'date_created': client.date_created.isoformat() if client.date_created else None
     })
 
-
-@app.route('/AddClient', methods=['GET','POST'])
+# POST: Add a new client to the database
+@app.route('/AddClient', methods=['GET', 'POST'])
 def AddClient():
     if request.method == 'POST':
         print("Received POST request to add client")
@@ -112,7 +120,6 @@ def AddClient():
             progress=data.get('progress', '')
         )
         db.session.add(new_client)
-
         try:
             db.session.commit()
         except Exception as e:
@@ -121,11 +128,13 @@ def AddClient():
             return jsonify({'error': 'Failed to add client'}), 500
     return jsonify({'message': 'Client added successfully'}), 201
 
+# PUT: Update a client's information
 @app.route('/clients/<int:id>', methods=['PUT'])
 def update_client(id):
     data = request.json
     client = Client.query.get_or_404(id)
-    
+
+    # Update client fields
     client.name = data['name']
     client.email = data['email']
     client.phone = data['phone']
@@ -143,10 +152,11 @@ def update_client(id):
     client.meal_plan = data.get('meal_plan', '')
     client.workout_plan = data.get('workout_plan', '')
     client.progress = data.get('progress', '')
-    db.session.commit()
 
+    db.session.commit()
     return jsonify({'message': 'Client updated successfully'}), 200
 
+# DELETE: Remove a client from the database
 @app.route('/deleteclients/<int:id>', methods=['DELETE'])
 def delete_client(id):
     client = Client.query.get_or_404(id)
@@ -159,18 +169,16 @@ def delete_client(id):
         return jsonify({'error': 'Failed to delete client'}), 500
     return jsonify({'message': 'Client deleted successfully'}), 200
 
-
+# Optional: Render a server-side HTML template (not used with React frontend)
 @app.route('/')
 def show_clients():
     clients = Client.query.all()
     return render_template('client_list.html', clients=clients)
 
-
-
-
+# Initialize database and run server
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()
-        app.run(debug=True, port = 5002)
+        db.create_all()  # Create tables if they don’t exist
+        app.run(debug=True, port=5002)  # Start Flask app
 
     

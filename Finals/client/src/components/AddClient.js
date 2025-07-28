@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AddClient as addClientAPI } from '../API/api';
-import './AddClient.css';
+import { AddClient as addClientAPI } from '../API/api'; // API call to add a new client
+import './AddClient.css'; // Import form styling
 
 function AddClient() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook to navigate after form submission
 
+  // Initialize form state with all necessary client fields
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -26,16 +27,20 @@ function AddClient() {
     progress: ''
   });
 
+  // Define fields that must be filled before submitting
   const requiredFields = ['name', 'email', 'phone', 'gender'];
 
+  // Generic change handler for all form inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: value }); // Update corresponding field in state
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent page reload on form submit
 
+    // Validate required fields
     for (let field of requiredFields) {
       if (!form[field]) {
         alert(`Please fill out the ${field} field.`);
@@ -44,7 +49,9 @@ function AddClient() {
     }
 
     try {
+      // Call API to add the new client
       await addClientAPI(form);
+      // Navigate to home after successful submission
       navigate('/');
     } catch (error) {
       console.error("There was an error adding the client!", error);
@@ -56,6 +63,7 @@ function AddClient() {
     <form onSubmit={handleSubmit} className="client-form">
       <h2>Add New Client</h2>
 
+      {/* Input fields for client details */}
       <label>Name:</label>
       <input type="text" name="name" value={form.name} onChange={handleChange} />
 
@@ -131,6 +139,7 @@ function AddClient() {
       <label>Workout Plan:</label>
       <input type="text" name="workout_plan" value={form.workout_plan} onChange={handleChange} />
 
+      {/* Submit button */}
       <button type="submit">Submit</button>
     </form>
   );

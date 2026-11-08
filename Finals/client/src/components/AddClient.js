@@ -52,7 +52,7 @@ function AddClient() {
       // Call API to add the new client
       await addClientAPI(form);
       // Navigate to home after successful submission
-      navigate('/');
+      navigate('/home');
     } catch (error) {
       console.error("There was an error adding the client!", error);
       alert("Failed to add client. Please check your inputs or try again later.");
@@ -82,13 +82,13 @@ function AddClient() {
         <option value="Prefer not to say">Prefer not to say</option>
       </select>
 
-      <label>Current Weight:</label>
+      <label>Current Weight (lbs):</label>
       <input type="number" name="current_weight" value={form.current_weight} onChange={handleChange} />
 
-      <label>Target Weight:</label>
+      <label>Target Weight (lbs):</label>
       <input type="number" name="target_weight" value={form.target_weight} onChange={handleChange} />
 
-      <label>Height:</label>
+      <label>Height (inches):</label>
       <input type="number" name="height" value={form.height} onChange={handleChange} />
 
       <label>Short-Term Goal:</label>

@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Finals/.vs
+/Finals/client/yarn.lock
+/Finals/server/instance/clients.db
+
+
+# Visual Studio generated files
+.vs/
+
+# Local database files
+Finals/server/instance/*.db
+Finals/server/instance/*.db-*

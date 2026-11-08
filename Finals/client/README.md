@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Fitness Redefined
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal training client management app built with React, Flask, and SQLite.
 
-## Available Scripts
+Fitness Redefined helps trainers organize client profiles, fitness goals, workout plans, meal plans, and progress notes.
 
-In the project directory, you can run:
+**Status:** Working prototype for learning and portfolio demonstration.
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Add, view, edit, and delete client profiles.
+- Record current and target weight in pounds.
+- Record height in inches.
+- Maintain short-term and long-term fitness goals.
+- Record activity levels and dietary preferences.
+- Maintain workout plans, meal plans, and progress notes.
+- Return to the dashboard after adding, editing, or deleting a client.
+- Display a helpful message and retry button when clients cannot load.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technology
 
-### `yarn test`
+| Layer | Technology |
+|---|---|
+| Frontend | React, JavaScript, CSS |
+| Navigation | React Router |
+| API requests | Axios |
+| Backend | Python, Flask |
+| Database | SQLite with Flask-SQLAlchemy |
+| Cross-origin requests | Flask-CORS |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `yarn build`
+This README is located inside the client folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `client/` — React application
+- `client/src/components/` — Login, dashboard, and client forms
+- `client/src/API/api.js` — Backend API calls
+- `server/app.py` — Flask application and database model
+- `server/instance/` — Local SQLite database
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Run Locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Install Python and Node.js with npm before starting.
 
-### `yarn eject`
+Run the following commands from the `Finals` folder using two separate terminals.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Start the backend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```powershell
+cd server
+py -m pip install flask flask-sqlalchemy flask-cors
+py app.py
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The backend runs at http://localhost:5002.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The app creates the database tables if they do not already exist.
 
-## Learn More
+### 2. Start the frontend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In a second terminal, starting from the `Finals` folder:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```powershell
+cd client
+npm.cmd install
+npm.cmd start
+```
 
-### Code Splitting
+Open http://localhost:3000.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Keep both terminals running while using the app.
 
-### Analyzing the Bundle Size
+## Demo Login
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Field | Value |
+|---|---|
+| Username | trainer |
+| Password | fit123 |
 
-### Making a Progressive Web App
+The login uses hardcoded frontend credentials. It is a demonstration screen and does not provide backend authentication or protect client records.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Use fictional client information when demonstrating the project.
 
-### Advanced Configuration
+## Manual Verification
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The following workflows were checked during development:
 
-### Deployment
+- Adding a client and viewing the new profile.
+- Editing a client and confirming changes after refresh.
+- Deleting a client through the confirmation screen.
+- Returning to Home after adding, editing, and deleting.
+- Displaying an error message when the backend is stopped.
+- Reloading clients with Try Again after restarting the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Current Limitations
 
-### `yarn build` fails to minify
+- Progress is stored as notes rather than dated tracking entries.
+- Workout and meal plans are entered manually.
+- Authentication and access control are not implemented.
+- Dependencies have reported audit findings that still require review.
+- This prototype is not ready for use with real client information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Planned Improvements
+
+- Dated weight and progress entries.
+- Progress charts.
+- Stronger form validation.
+- Consistent error handling across all client forms.
+- Backend authentication and protected API routes.
+- Dependency updates and deployment preparation.
+
+## Developer
+
+Jacorey Lasane

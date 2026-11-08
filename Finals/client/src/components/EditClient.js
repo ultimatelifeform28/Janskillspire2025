@@ -43,7 +43,7 @@ function EditClient() {
         } else {
           // If no client found, notify and redirect
           alert("Client not found");
-          navigate('/');
+          navigate('/home');
         }
       })
       .catch(err => console.error("Failed to fetch client", err)); // Handle fetch errors
@@ -61,7 +61,7 @@ function EditClient() {
     updateClient(id, form) // Send updated form data to backend
       .then(() => {
         alert("Client updated successfully!"); // Confirm success to user
-        navigate('/'); // Navigate back to homepage or client list
+        navigate('/home'); // Navigate back to homepage or client list
       })
       .catch(err => {
         console.error("Error updating client", err); // Log error
@@ -101,13 +101,13 @@ function EditClient() {
       <input type="text" name="long_term_goal" value={form.long_term_goal} onChange={handleChange} />
 
       {/* Physical metrics */}
-      <label>Current Weight:</label>
+      <label>Current Weight (lbs):</label>
       <input type="number" name="current_weight" value={form.current_weight} onChange={handleChange} />
 
-      <label>Target Weight:</label>
+      <label>Target Weight (lbs):</label>
       <input type="number" name="target_weight" value={form.target_weight} onChange={handleChange} />
 
-      <label>Height:</label>
+      <label>Height (inches):</label>
       <input type="number" name="height" value={form.height} onChange={handleChange} />
 
       <label>Age:</label>

@@ -37,7 +37,7 @@ function DeleteClient() {
         onSubmit={async (e) => {
           e.preventDefault(); // Prevent form refresh
           await deleteClient(params.id); // Call API to delete client
-          navigate('/'); // Redirect to homepage after deletion
+          navigate('/home'); // Redirect to homepage after deletion
         }}
       >
         <h1>Delete Client Profile</h1>

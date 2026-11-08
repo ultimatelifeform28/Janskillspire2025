@@ -109,6 +109,18 @@ The following workflows were checked during development:
 - Backend authentication and protected API routes.
 - Dependency updates and deployment preparation.
 
+
+## Screenshots
+
+### Demo Login
+![Fitness Redefined login page](screenshots/login.png)
+
+### Client Dashboard
+![Client dashboard](screenshots/dashboard.png)
+
+### Connection Error Handling
+![Connection error message and retry button](screenshots/connection-error.png)
+
 ## Developer
 
 Jacorey Lasane
